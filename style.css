@@ -10,14 +10,14 @@
 
 @font-face {
     font-family: 'forcedsquare';
-    src: url('/font/forcedsquare.ttf') format('truetype');
+    src: url('https://nikuwebdeveloper.com/font/forcedsquare.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'vcrmono';
-    src: url('/font/vcrmono.ttf') format('truetype');
+    src: url('https://nikuwebdeveloper.com/font/vcrmono.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -74,11 +74,27 @@ main {
     margin: 10rem auto;
 }
 
+header {
+    margin-top: 10vw;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 1.25rem;
+}
+
 #logo {
     font-family: 'vcrmono';
     width: 49vw;
     margin: auto;
 }
+
+#top {
+    position: absolute;
+    top: 0;
+}
+
 
 #button-top {
     position: fixed;
@@ -106,8 +122,40 @@ main {
     display: block;
 }
 
+.tile {
+    display: flex;
+    width: var(--tileSize);
+    height: var(--tileSize);
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid black;
+}
+
+.tile>* {
+    z-index: 1;
+    position: relative;
+}
+
+.tile:hover::before {
+    filter: unset;
+}
+
+.tile:hover>h2 {
+    display: none;
+}
+
+.tile-group {
+    display: flex;
+    flex-wrap: wrap;
+    width: 49vw;
+    margin: 0 auto;
+    gap: 1vw;
+}
+
 .tile::before {
-    content: ""; /*Ensures the pseudo-element is created */
+    content: "";
+    /*Ensures the pseudo-element is created */
     position: absolute;
     top: 0;
     left: 0;
@@ -140,35 +188,14 @@ main {
     background: url('image/tile/github-thumb.jpg') no-repeat center center / cover;
 }
 
-.tile {
-    display: flex;
-    width: var(--tileSize);
-    height: var(--tileSize);
-    background-color: white;
-    position: relative;
-    overflow: hidden;
-    border: 3px solid black;
+
+#moptec {
+    transition: background-color 0.1s;
 }
 
-.tile>* {
-    z-index: 1;
-    position: relative;
-}
-
-.tile-group {
-    display: flex;
-    flex-wrap: wrap;
-    width: 49vw;
-    margin: 0 auto;
-    gap: 1vw;
-}
-
-.tile:hover::before {
-    filter: unset;
-}
-
-.tile:hover>h2 {
-    display: none;
+#moptec:hover {
+    cursor: default;
+    background-color: black;
 }
 
 #moptec:hover::before {
@@ -185,30 +212,11 @@ main {
     color: white;
 }
 
-#moptec {
-    transition: background-color 0.1s;
-}
-
-#moptec:hover {
-    cursor: default;
-    background-color: black;
-}
-
 #logo {
     font-size: 3rem;
     letter-spacing: 0.2rem;
     text-align: center;
     font-weight: 100;
-}
-
-header {
-    margin-top: 10vw;
-}
-
-footer {
-    text-align: center;
-    padding: 2rem 0;
-    font-size: 1.25rem;
 }
 
 .no-select {
@@ -222,11 +230,9 @@ footer {
     -ms-user-drag: none;
     user-drag: none;
 }
-#top{
-    position: absolute;
-    top: 0;
-}
-#meat{
+
+
+#meat {
     padding-bottom: 0.5rem;
     width: 6rem;
     height: auto;
