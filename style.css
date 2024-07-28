@@ -10,14 +10,14 @@
 
 @font-face {
     font-family: 'forcedsquare';
-    src: url('font/forcedsquare.TTF') format('truetype');
+    src: url('/font/forcedsquare.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'vcrmono';
-    src: url('font/vcrmono.ttf') format('truetype');
+    src: url('/font/vcrmono.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -52,7 +52,7 @@ li {
 }
 
 h2 {
-    margin: 1rem 0 0 1rem;
+    padding: 1rem;
     font-size: 3rem;
     text-align: left;
 }
