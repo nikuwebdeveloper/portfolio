@@ -53,8 +53,9 @@ li {
 
 h2 {
     padding: 1rem;
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-align: left;
+    line-height: 1.1;
 }
 
 h3 {
@@ -82,12 +83,6 @@ footer {
     text-align: center;
     padding: 2rem 0;
     font-size: 1.25rem;
-}
-
-#logo {
-    font-family: 'vcrmono';
-    width: 49vw;
-    margin: auto;
 }
 
 #top {
@@ -213,10 +208,13 @@ footer {
 }
 
 #logo {
-    font-size: 3rem;
+    font-size: 4rem;
     letter-spacing: 0.2rem;
     text-align: center;
     font-weight: 100;
+    font-family: 'vcrmono';
+    width: 49vw;
+    margin: auto;
 }
 
 .no-select {
