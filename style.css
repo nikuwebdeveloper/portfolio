@@ -1,5 +1,5 @@
 :root {
-    --tileSize: calc((50vw / 3) - 1vw - 6px);
+    /* --tileSize: calc((50vw / 3) - 1vw - 6px); */
 }
 
 * {
@@ -30,6 +30,9 @@ body {
     box-sizing: border-box;
     font-family: 'forcedsquare', sans-serif;
     background-color: gold;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 html,
@@ -45,6 +48,7 @@ a {
 
 a:visited {
     color: initial;
+    /* set actual color */
 }
 
 li {
@@ -52,27 +56,23 @@ li {
 }
 
 h2 {
-    padding: 1rem;
-    font-size: 2.5rem;
+    margin: .75vw 1vw;
+    font-size: 2vw;
     text-align: left;
     line-height: 1.1;
 }
 
-h3 {
-    font-size: 1.1rem;
-}
-
 p {
-    font-size: 1rem;
+    font-size: 1.5vw;
     text-align: justify;
 }
 
 main {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
-    margin: 10rem auto;
+    min-width: 100%;
+    min-height: 50vw;
+    margin: 10vw auto;
 }
 
 header {
@@ -82,7 +82,12 @@ header {
 footer {
     text-align: center;
     padding: 2rem 0;
-    font-size: 1.25rem;
+    font-size: 1.25vw;
+    align-items: flex-start; /*safari fix*/
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
 }
 
 #top {
@@ -93,12 +98,12 @@ footer {
 
 #button-top {
     position: fixed;
-    bottom: 2rem;
-    right: 2rem;
+    bottom: 2vw;
+    right: 2vw;
     background-color: white;
-    padding: 1rem;
-    height: 3rem;
-    width: 3rem;
+    padding: 2vw;
+    height: 2vw;
+    width: 2vw;
     display: flex;
     justify-content: center;
     opacity: 0;
@@ -119,12 +124,16 @@ footer {
 
 .tile {
     display: flex;
-    width: var(--tileSize);
+    /* width: var(--tileSize); */
     height: var(--tileSize);
     background-color: white;
     position: relative;
     overflow: hidden;
     border: 3px solid black;
+    align-items: flex-start;
+    box-sizing: border-box;
+    aspect-ratio: 1/1;
+    /*safari fix*/
 }
 
 .tile>* {
@@ -141,11 +150,16 @@ footer {
 }
 
 .tile-group {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    /* Three equal columns */
+    /* display: flex;
+    flex-wrap: wrap; */
     width: 49vw;
     margin: 0 auto;
     gap: 1vw;
+    box-sizing: border-box;
 }
 
 .tile::before {
@@ -183,7 +197,6 @@ footer {
     background: url('image/tile/github-thumb.jpg') no-repeat center center / cover;
 }
 
-
 #moptec {
     transition: background-color 0.1s;
 }
@@ -208,13 +221,11 @@ footer {
 }
 
 #logo {
-    font-size: 4rem;
-    letter-spacing: 0.2rem;
+    font-size: 4vw;
     text-align: center;
-    font-weight: 100;
+    /* font-weight: 100; */
     font-family: 'vcrmono';
-    width: 49vw;
-    margin: auto;
+    width: 100%;
 }
 
 .no-select {
@@ -232,8 +243,35 @@ footer {
 
 #meat {
     padding-bottom: 0.5rem;
-    width: 6rem;
+    width: 6vw;
     height: auto;
 }
 
-@media only screen and (max-width: 768px) {}
+@media only screen and (max-width: 768px) {
+    h2 {
+        font-size: 3.5vw;
+    }
+    
+    footer{
+        font-size: 3vw;
+    }
+
+    #logo{
+        font-size: 7vw;
+    }
+
+    #meat{
+        height: 20vw;
+        width: auto;
+    }
+
+    .tile-group {
+        width: 75vw;
+    }
+
+    .tile {
+        aspect-ratio: 1/1;
+        width: 100%;
+    }
+
+}
