@@ -72,7 +72,7 @@ main {
     flex-direction: column;
     min-width: 100%;
     min-height: 50vw;
-    margin: 10vw auto;
+    margin: 10vw auto 15vw auto;
 }
 
 header {
@@ -81,13 +81,14 @@ header {
 
 footer {
     text-align: center;
-    padding: 2rem 0;
+    margin-bottom: 2vw;
     font-size: 1.25vw;
     align-items: flex-start; /*safari fix*/
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     bottom: 0;
+    width: 100%;
 }
 
 #top {
@@ -153,18 +154,14 @@ footer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    /* Three equal columns */
-    /* display: flex;
-    flex-wrap: wrap; */
-    width: 49vw;
+    width: 50vw;
     margin: 0 auto;
     gap: 1vw;
     box-sizing: border-box;
 }
 
 .tile::before {
-    content: "";
-    /*Ensures the pseudo-element is created */
+    content: ""; /*Ensures the pseudo-element is created */
     position: absolute;
     top: 0;
     left: 0;
@@ -189,12 +186,20 @@ footer {
     background: url('image/tile/our-lady-of-confidence-carmelite-monastery-thumb.jpg') no-repeat center center / cover;
 }
 
+#linkedin::before {
+    background: url('image/tile/linkedin-thumb.jpg') no-repeat center center / cover;
+}
+
 #moptec::before {
     background: url('image/tile/moptec-thumb.jpg') no-repeat center center / cover;
 }
 
 #github::before {
     background: url('image/tile/github-thumb.jpg') no-repeat center center / cover;
+}
+
+#free-code-camp::before {
+    background: url('image/tile/free-code-camp-thumb.jpg') no-repeat center center / cover;
 }
 
 #moptec {
