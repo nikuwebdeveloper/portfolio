@@ -1,10 +1,10 @@
 @font-face {
-    font-family: 'forcedsquare';
-    src: url('https://nikuwebdeveloper.com/font/forcedsquare.ttf') format('truetype');
+    font-family: 'pixelFont';
+    src: url('https://nikuwebdeveloper.com/font/GenericMobileSystem.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 .pixelFont {
-    font-family: 'forcedsquare', sans-serif;
+    font-family: 'pixelFont', sans-serif;
 }
