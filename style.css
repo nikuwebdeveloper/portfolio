@@ -83,7 +83,8 @@ footer {
     text-align: center;
     margin-bottom: 2vw;
     font-size: 1.25vw;
-    align-items: flex-start; /*safari fix*/
+    align-items: flex-start;
+    /*safari fix*/
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -161,7 +162,8 @@ footer {
 }
 
 .tile::before {
-    content: ""; /*Ensures the pseudo-element is created */
+    content: "";
+    /*Ensures the pseudo-element is created */
     position: absolute;
     top: 0;
     left: 0;
@@ -172,6 +174,37 @@ footer {
     filter: grayscale(70%) blur(3px) opacity(30%);
     z-index: 0;
     transition: filter 0.1s ease-in-out;
+}
+
+.tile-img {
+    height: 100%;
+    width: 100%;
+}
+
+#lightbox {
+    position: fixed;
+    z-index: 999;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    background-color: hsla(0, 0%, 0%, 0.75);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#lightbox-img {
+    margin: auto;
+    aspect-ratio: 1 / 1;
+}
+
+#lightbox-text {
+    position: absolute;
+    top: 12vh;
+    max-width: 35%;
+    font-size: 1.5rem;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #corpus-christi-catholic-church::before {
@@ -201,6 +234,24 @@ footer {
 #free-code-camp::before {
     background: url('image/tile/free-code-camp-thumb.jpg') no-repeat center center / cover;
 }
+
+#to-home::before {
+    background: url('image/tile/home.png') no-repeat center center / cover;
+}
+
+#to-art::before {
+    background: url('image/tile/art.png') no-repeat center center / cover;
+}
+
+/* #four-japanese-women::before {
+    background: url('image/art/four-japanese-women.png') no-repeat center center / cover;
+}
+
+#evil-squid::before {
+    background: url('image/art/evil-squid.png') no-repeat center center / cover;
+} */
+
+
 
 #moptec {
     transition: background-color 0.1s;
@@ -256,16 +307,16 @@ footer {
     h2 {
         font-size: 3.5vw;
     }
-    
-    footer{
+
+    footer {
         font-size: 3vw;
     }
 
-    #logo{
+    #logo {
         font-size: 7vw;
     }
 
-    #meat{
+    #meat {
         height: 20vw;
         width: auto;
     }

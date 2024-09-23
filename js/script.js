@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const moptecAnchor = document.getElementById('moptec');
     const moptecHeading2 = document.getElementById('moptec-under-construction');
 
-    
+
     function getWindowHeight() {
         return document.documentElement.scrollHeight - window.innerHeight;
     }
@@ -14,11 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
         buttonTop.style.opacity = Math.min(scrollPercentage, 1);
     }
 
-    function displayUnderConstruction(){
+    function displayUnderConstruction() {
         moptecHeading2.innerHTML = "COMING SOON";
 
     }
-    function resetText(){
+    function resetText() {
         moptecHeading2.innerHTML = "MOPTEC";
     }
 
