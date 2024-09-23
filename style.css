@@ -347,17 +347,4 @@ footer {
         aspect-ratio: 1/1;
         width: 100%;
     }
-
-    #lightbox-img {}
-
-    #lightbox-text {
-        display: none;
-        position: absolute;
-        top: 12vh;
-        max-width: 35%;
-        font-size: 1.5rem;
-        color: black;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
 }
