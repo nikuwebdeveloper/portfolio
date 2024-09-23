@@ -321,6 +321,10 @@ footer {
     height: auto;
 }
 
+.tile:hover {
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 768px) {
     h2 {
         font-size: 3.5vw;
@@ -346,5 +350,16 @@ footer {
     .tile {
         aspect-ratio: 1/1;
         width: 100%;
+    }
+
+    #lightbox-wrapper {
+        max-width: initial;
+        width: 80vw;
+        height: auto;
+    }
+
+    #lightbox-text {
+        bottom: 3%;
+        font-size: .8rem;
     }
 }
