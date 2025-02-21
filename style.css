@@ -1,11 +1,31 @@
-:root {
-    /* --tileSize: calc((50vw / 3) - 1vw - 6px); */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 * {
     margin: 0;
-    border: 0;
     padding: 0;
+}
+
+html {
+    font-size: 16px;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
 }
 
 @font-face {
@@ -15,24 +35,15 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'vcrmono';
-    src: url('https://nikuwebdeveloper.com/font/vcrmono.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-html {
-    font-size: 16px;
-}
-
 body {
-    box-sizing: border-box;
+    font-size: inherit;
+    line-height: inherit;
     font-family: 'forcedsquare', sans-serif;
     background-color: gold;
     position: relative;
     display: flex;
     flex-direction: column;
+
 }
 
 html,
@@ -67,103 +78,52 @@ p {
     text-align: justify;
 }
 
+header,
+main {
+    margin: 5vw auto 0 auto;
+    width: 50vw;
+}
+
 main {
     display: flex;
     flex-direction: column;
-    min-width: 100%;
     min-height: 50vw;
-    margin: 10vw auto 15vw auto;
+    margin-bottom: 10rem;
 }
 
-header {
-    margin-top: 10vw;
+#logo {
+    width: 100%;
+    padding: 1vw;
+}
+
+header{
+    align-items: flex-start; /*safari stretch fix for image parent*/
 }
 
 footer {
     text-align: center;
-    margin-bottom: 2vw;
-    font-size: 1.25vw;
-    align-items: flex-start;
-    /*safari fix*/
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0;
+    font-size: 1rem;
+    margin: auto auto 1rem auto;
     width: 100%;
+
 }
 
-#top {
-    position: absolute;
-    top: 0;
-}
-
-
-#button-top {
-    position: fixed;
-    bottom: 2vw;
-    right: 2vw;
-    background-color: white;
-    padding: 2vw;
-    height: 2vw;
-    width: 2vw;
-    display: flex;
-    justify-content: center;
-    opacity: 0;
-}
-
-#button-top>p {
-    margin: auto;
-    text-align: center;
-}
-
-.mobile {
-    display: none;
-}
-
-.desktop {
-    display: block;
-}
-
+/* Tile Styling */
 .tile {
     display: flex;
-    /* width: var(--tileSize); */
     height: var(--tileSize);
     background-color: white;
-    position: relative;
     overflow: hidden;
-    border: 3px solid black;
+    border: 2px solid black;
+    aspect-ratio: 1 / 1;
     align-items: flex-start;
-    box-sizing: border-box;
-    aspect-ratio: 1/1;
-    /*safari fix*/
-}
-
-.tile>* {
-    z-index: 1;
     position: relative;
-}
-
-.tile:hover::before {
-    filter: unset;
-}
-
-.tile:hover>h2 {
-    display: none;
-}
-
-.tile-group {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    width: 50vw;
-    margin: 0 auto;
-    gap: 1vw;
-    box-sizing: border-box;
+    cursor: pointer;
+    align-items: flex-start; /*safari stretch fix for image parent*/
 }
 
 .tile::before {
     content: "";
-    /*Ensures the pseudo-element is created */
     position: absolute;
     top: 0;
     left: 0;
@@ -171,14 +131,57 @@ footer {
     height: 100%;
     background-position: center;
     background-size: contain;
-    filter: grayscale(70%) blur(3px) opacity(30%);
     z-index: 0;
-    transition: filter 0.1s ease-in-out;
 }
 
-.tile-img {
-    height: 100%;
+.tile>img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.tile-cover {
+    background-color: rgba(255, 255, 255, 0.75);
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+    backdrop-filter: blur(5px);
+    transition: opacity 0.1s linear;
+    z-index: 2;
+}
+
+.tile-cover:hover {
+    opacity: 0%;
+}
+
+.tile>h2 {
+    display: flex;
+    color: black;
+    opacity: 1;
     width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+}
+
+.tile>h2 {
+    transition: opacity 1s;
+}
+
+/* Tile Hover Effects */
+.tile:hover>h2 {
+    opacity: 0;
+}
+
+.tile-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 50vw;
+    margin: 0 auto;
+    gap: 1vw;
 }
 
 #lightbox {
@@ -187,19 +190,21 @@ footer {
     width: 100vw;
     height: 100vh;
     display: none;
-    background-color: hsla(0, 0%, 0%, 0.75);
+    background-color: hsla(0, 0%, 0%, 0.6);
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
 #lightbox-wrapper {
-    height: 40vw;
-    max-width: 40vw;
+    width: 40vw;
+    height: auto;
     position: relative;
     justify-content: center;
     align-items: center;
     display: flex;
+    flex-direction: column;
+    align-items: flex-start; /*safari stretch fix for image parent*/
 }
 
 #lightbox-img {
@@ -210,96 +215,26 @@ footer {
     height: 100%;
 }
 
-
-
 #lightbox-text {
-    position: absolute;
-    bottom: 5%;
     font-size: 1rem;
     color: black;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    width: 90%;
-    /* Center the box */
-    text-align: center;
-}
-
-
-
-#corpus-christi-catholic-church::before {
-    background: url('image/tile/corpus-christi-catholic-church-thumb.jpg') no-repeat center center / cover;
-}
-
-#our-lady-of-lourdes-catholic-church::before {
-    background: url('image/tile/our-lady-of-lourdes-catholic-church-thumb.jpg') no-repeat center center / cover;
-}
-
-#our-lady-of-confidence-carmelite-monastery::before {
-    background: url('image/tile/our-lady-of-confidence-carmelite-monastery-thumb.jpg') no-repeat center center / cover;
-}
-
-#linkedin::before {
-    background: url('image/tile/linkedin-thumb.jpg') no-repeat center center / cover;
-}
-
-#moptec::before {
-    background: url('image/tile/moptec-thumb.jpg') no-repeat center center / cover;
-}
-
-#github::before {
-    background: url('image/tile/github-thumb.jpg') no-repeat center center / cover;
-}
-
-#free-code-camp::before {
-    background: url('image/tile/free-code-camp-thumb.jpg') no-repeat center center / cover;
-}
-
-#to-home::before {
-    background: url('image/tile/home.png') no-repeat center center / cover;
-}
-
-#to-art::before {
-    background: url('image/tile/art.png') no-repeat center center / cover;
-}
-
-/* #four-japanese-women::before {
-    background: url('image/art/four-japanese-women.png') no-repeat center center / cover;
-}
-
-#evil-squid::before {
-    background: url('image/art/evil-squid.png') no-repeat center center / cover;
-} */
-
-
-
-#moptec {
-    transition: background-color 0.1s;
-}
-
-#moptec:hover {
-    cursor: default;
-    background-color: black;
-}
-
-#moptec:hover::before {
-    filter: grayscale(70%) blur(3px) opacity(30%);
-}
-
-#moptec>h2 {
-    color: black;
-    transition: color 0.1s;
-}
-
-#moptec:hover>h2 {
-    display: block;
-    color: white;
-}
-
-#logo {
-    font-size: 4vw;
-    text-align: center;
-    /* font-weight: 100; */
-    font-family: 'vcrmono';
     width: 100%;
+    text-align: center;
+    background-color: white;
+    padding: 1rem;
+}
+
+.tile>img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.tile:hover>.tile-cover,
+.tile:hover>h2 {
+    opacity: 0;
 }
 
 .no-select {
@@ -314,52 +249,72 @@ footer {
     user-drag: none;
 }
 
+#meat-container {
+    position: relative;
+    height: 3rem;
+    margin: 1rem auto;
+    width: 3rem;
+    align-items: flex-start; /*safari stretch fix for image parent*/
+}
 
-#meat {
-    padding-bottom: 0.5rem;
-    width: 6vw;
-    height: auto;
+#meat-footer-first,
+#meat-footer-second {
+    position: absolute;
+    height: 3rem;
+    width: auto;
+    /* margin: 1rem 0; */
+    transition: opacity 200ms ease-in-out;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#meat-footer-first {
+    opacity: 1;
+}
+
+#meat-footer-second {
+    opacity: 0;
+}
+
+#meat-container:hover #meat-footer-first {
+    opacity: 0;
+}
+
+#meat-container:hover #meat-footer-second {
+    opacity: 1;
 }
 
 .tile:hover {
     cursor: pointer;
 }
 
-@media only screen and (max-width: 768px) {
+
+@media (max-width: 960px) {
+
+    main,
+    header,
+    .tile-group {
+        width: 85vw;
+    }
+
+    header,
+    main {
+        margin-top: 10vw;
+    }
+
     h2 {
-        font-size: 3.5vw;
-    }
-
-    footer {
-        font-size: 3vw;
-    }
-
-    #logo {
-        font-size: 7vw;
-    }
-
-    #meat {
-        height: 20vw;
-        width: auto;
+        font-size: 4vw;
+        margin: 0.75vw 1.25vw;
     }
 
     .tile-group {
+        gap: 1.5vw;
+
+    }
+
+    #lightbox-wrapper{
         width: 75vw;
-    }
-
-    .tile {
-        aspect-ratio: 1/1;
-        width: 100%;
-    }
-
-    #lightbox-wrapper {
-        max-width: initial;
-        width: 80vw;
         height: auto;
     }
 
-    #lightbox-text {
-        bottom: 3%;
-        font-size: .8rem;
-    }
 }
