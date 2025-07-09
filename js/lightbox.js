@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let imagePath = "image/art/";
 
-    const images = document.querySelectorAll('img');
+    const images = document.querySelectorAll('.tile-group img');
     let fileName = "";
     // Loop through all images and add a click event listener
     for (let i = 0; i < images.length; i++) {
