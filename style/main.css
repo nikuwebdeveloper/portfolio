@@ -77,7 +77,7 @@ p {
 
 footer {
     display: flex;
-    margin: 3rem auto 0 3rem;
+    margin: 3rem auto 0 auto;
     text-align: center;
 }
 #copyright{
@@ -274,7 +274,7 @@ body::before {
 
     p,
     a {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     #top-group {
